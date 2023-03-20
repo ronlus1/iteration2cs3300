@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Addusers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Homeaddress</th>
+      <th>Dateofbirth</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addusers.each do |adduser| %>
+      <tr>
+        <td><%= adduser.name %></td>
+        <td><%= adduser.lastname %></td>
+        <td><%= adduser.homeaddress %></td>
+        <td><%= adduser.dateofbirth %></td>
+        <td><%= link_to 'Show', adduser %></td>
+        <td><%= link_to 'Edit', edit_adduser_path(adduser) %></td>
+        <td><%= link_to 'Destroy', adduser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Adduser', new_adduser_path %>

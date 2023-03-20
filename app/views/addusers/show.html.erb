@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @adduser.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @adduser.lastname %>
+</p>
+
+<p>
+  <strong>Homeaddress:</strong>
+  <%= @adduser.homeaddress %>
+</p>
+
+<p>
+  <strong>Dateofbirth:</strong>
+  <%= @adduser.dateofbirth %>
+</p>
+
+<%= link_to 'Edit', edit_adduser_path(@adduser) %> |
+<%= link_to 'Back', addusers_path %>
