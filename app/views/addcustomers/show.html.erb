@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @addcustomer.name %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @addcustomer.lastname %>
+</p>
+
+<p>
+  <strong>Homeaddress:</strong>
+  <%= @addcustomer.homeaddress %>
+</p>
+
+<p>
+  <strong>Dateofbirth:</strong>
+  <%= @addcustomer.dateofbirth %>
+</p>
+
+<%= link_to 'Edit', edit_addcustomer_path(@addcustomer) %> |
+<%= link_to 'Back', addcustomers_path %>
