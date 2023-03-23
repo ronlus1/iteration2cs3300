@@ -1,33 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Addcustomers</h1>
-
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Homeaddress</th>
-      <th>Dateofbirth</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @addcustomers.each do |addcustomer| %>
-      <tr>
-        <td><%= addcustomer.name %></td>
-        <td><%= addcustomer.lastname %></td>
-        <td><%= addcustomer.homeaddress %></td>
-        <td><%= addcustomer.dateofbirth %></td>
-        <td><%= link_to 'Show', addcustomer %></td>
-        <td><%= link_to 'Edit', edit_addcustomer_path(addcustomer) %></td>
-        <td><%= link_to 'Destroy', addcustomer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+          <h5 class = "card-title"> First Name: <%= addcustomer.name %></h5>
+          <p> Last name: <%= addcustomer.lastname %></p>
+          <p> Home address: <%= addcustomer.homeaddress %></p>
+          <p> Date of birth: <%= addcustomer.dateofbirth %></p>
+
+          
+          <%= link_to 'Show', addcustomer, class: "btn btn-primary", :method => :get %>
+          <%= link_to 'Edit', edit_addcustomer_path(addcustomer), class: "btn btn-secondary" %>
+          <%= link_to "Destroy",  addcustomer, method: :delete, class: "btn btn-danger",data: {confirm: "Are you sure that you wish to delete #{addcustomer.name}?"} %>
+          </div>
+        </div>
+        
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Addcustomer', new_addcustomer_path %>
+<%= link_to 'Add customer', new_addcustomer_path %>
+

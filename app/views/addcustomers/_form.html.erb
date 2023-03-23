@@ -1,6 +1,6 @@
-<%= form_with(model: addcustomer) do |form| %>
+<%= form_with(model: addcustomer, class: "row g-3") do |form| %>
   <% if addcustomer.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(addcustomer.errors.count, "error") %> prohibited this addcustomer from being saved:</h2>
 
       <ul>
@@ -11,27 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="col-md-6">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter your first name", aria_label: "First name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
+  <div class="col-md-6">
+    <%= form.label :lastname, class: "form-label" %>
+    <%= form.text_field :lastname, class: "form-control", placeholder: "Enter your last name", aria_label: "Last name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :homeaddress %>
-    <%= form.text_area :homeaddress %>
+  <div class="col-12">
+    <%= form.label :homeaddress, class: "form-label" %>
+    <%= form.text_area :homeaddress, class: "form-control", placeholder: "Enter your home address" %>
   </div>
 
-  <div class="field">
-    <%= form.label :dateofbirth %>
-    <%= form.date_select :dateofbirth %>
+  <div class="col-md-6">
+    <%= form.label :dateofbirth, class: "form-label" %>
+    <%= form.date_select :dateofbirth, class: "form-control",:start_year=> 1950  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="col-12">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+
+
+
+
+
