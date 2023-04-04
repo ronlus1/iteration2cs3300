@@ -2,5 +2,5 @@
 
 <%= render 'form', addcustomer: @addcustomer %>
 
-<%= link_to 'Show', @addcustomer %> |
-<%= link_to 'Back', addcustomers_path %>
+<a class="btn btn-success" href="<%= addcustomer_path(@addcustomer) %>">Show</a> |
+<a class="btn btn-warning" href="<%= addcustomers_path %>">Back</a>

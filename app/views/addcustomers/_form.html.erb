@@ -12,27 +12,28 @@
   <% end %>
 
   <div class="col-md-6">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control", placeholder: "Enter your first name", aria_label: "First name" %>
+    <%= form.label :name, "Name" ,class: "form-label text-dark" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter your first name here", aria_label: "First name" %>
   </div>
 
   <div class="col-md-6">
-    <%= form.label :lastname, class: "form-label" %>
-    <%= form.text_field :lastname, class: "form-control", placeholder: "Enter your last name", aria_label: "Last name" %>
+    <%= form.label :lastname, "Last Name" ,class: "form-label text-dark" %>
+    <%= form.text_field :lastname, class: "form-control", placeholder: "Enter your last name here", aria_label: "Last name" %>
   </div>
 
   <div class="col-12">
-    <%= form.label :homeaddress, class: "form-label" %>
-    <%= form.text_area :homeaddress, class: "form-control", placeholder: "Enter your home address" %>
+    <%= form.label :homeaddress, "Home Address" ,class: "form-label text-dark" %>
+    <%= form.text_area :homeaddress, class: "form-control", placeholder: "Enter your home address here" %>
   </div>
 
   <div class="col-md-6">
-    <%= form.label :dateofbirth, class: "form-label" %>
+    <%= form.label :dateofbirth, "Date of birth" ,class: "form-label text-dark" %>
     <%= form.date_select :dateofbirth, class: "form-control",:start_year=> 1950  %>
   </div>
 
   <div class="col-12">
-    <%= form.submit "Save", class: "btn btn-primary" %>
+    <%= form.submit "Save", class: "btn btn-info" %>
+    
   </div>
 <% end %>
 

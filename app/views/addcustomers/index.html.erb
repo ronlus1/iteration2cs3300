@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Addcustomers</h1>
+<h1>Added customers</h1>
 <table>
   <thead>
     <tr>
@@ -11,17 +11,18 @@
   <tbody>
     <% @addcustomers.each do |addcustomer| %>
       
-        <div class="card" style="width: 18rem;">
+        <div class="card border border-dark" style="max-width: 18rem;">
           <div class="card-body">
           <h5 class = "card-title"> First Name: <%= addcustomer.name %></h5>
-          <p> Last name: <%= addcustomer.lastname %></p>
-          <p> Home address: <%= addcustomer.homeaddress %></p>
-          <p> Date of birth: <%= addcustomer.dateofbirth %></p>
+          <p class="text-dark"> Last name: <%= addcustomer.lastname %></p>
+          <p class="text-dark"> Home address: <%= addcustomer.homeaddress %></p>
+          <p class="text-dark"> Date of birth: <%= addcustomer.dateofbirth %></p>
 
           
-          <%= link_to 'Show', addcustomer, class: "btn btn-primary", :method => :get %>
-          <%= link_to 'Edit', edit_addcustomer_path(addcustomer), class: "btn btn-secondary" %>
+          <%= link_to 'Show', addcustomer, class: "btn btn-success", :method => :get %>
+          <%= link_to 'Edit', edit_addcustomer_path(addcustomer), class: "btn btn-primary" %>
           <%= link_to "Destroy",  addcustomer, method: :delete, class: "btn btn-danger",data: {confirm: "Are you sure that you wish to delete #{addcustomer.name}?"} %>
+          
           </div>
         </div>
         
@@ -31,5 +32,6 @@
 
 <br>
 
-<%= link_to 'Add customer', new_addcustomer_path %>
+<%= link_to 'Add customer', new_addcustomer_path, class: 'btn btn-info' %>
+
 

@@ -1,24 +1,33 @@
 <p id="notice"><%= notice %></p>
-
+<div class="card border border-dark border-4" style="width: 18rem;">
+    <div class="card-body">
 <p>
   <strong>Name:</strong>
   <%= @addcustomer.name %>
 </p>
 
 <p>
-  <strong>Lastname:</strong>
+  <strong>Last Name:</strong>
   <%= @addcustomer.lastname %>
 </p>
 
 <p>
-  <strong>Homeaddress:</strong>
+  <strong>Home Address:</strong>
   <%= @addcustomer.homeaddress %>
 </p>
 
 <p>
-  <strong>Dateofbirth:</strong>
+  <strong>Date of birth:</strong>
   <%= @addcustomer.dateofbirth %>
 </p>
 
-<%= link_to 'Edit', edit_addcustomer_path(@addcustomer) %> |
-<%= link_to 'Back', addcustomers_path %>
+
+<div class="d-flex justify-content-between">
+<%= button_to 'Edit', edit_addcustomer_path(@addcustomer), method: :get, class: 'btn btn-primary' %>
+<%= button_to 'Back', addcustomers_path, method: :get, class: 'btn btn-warning' %>
+</div>
+
+
+
+</div>
+</div>
