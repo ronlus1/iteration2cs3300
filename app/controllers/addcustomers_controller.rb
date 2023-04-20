@@ -1,5 +1,6 @@
 class AddcustomersController < ApplicationController
   before_action :set_addcustomer, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ new edit create update destroy]
 
   # GET /addcustomers or /addcustomers.json
   def index

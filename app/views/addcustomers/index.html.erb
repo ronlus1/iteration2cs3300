@@ -20,9 +20,12 @@
 
           
           <%= link_to 'Show', addcustomer, class: "btn btn-success", :method => :get %>
+          <% if user_signed_in? %>
+
+           
           <%= link_to 'Edit', edit_addcustomer_path(addcustomer), class: "btn btn-primary" %>
           <%= link_to "Destroy",  addcustomer, method: :delete, class: "btn btn-danger",data: {confirm: "Are you sure that you wish to delete #{addcustomer.name}?"} %>
-          
+          <% end %> 
           </div>
         </div>
         
