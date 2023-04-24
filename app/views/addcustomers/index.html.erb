@@ -20,7 +20,7 @@
 
           
           <%= link_to 'Show', addcustomer, class: "btn btn-success", :method => :get %>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.admin? %>
 
            
           <%= link_to 'Edit', edit_addcustomer_path(addcustomer), class: "btn btn-primary" %>
