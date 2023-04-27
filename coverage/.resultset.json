@@ -92,8 +92,20 @@
           1,
           null
         ]
+      },
+      "/root/iteration2cs3300/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1682618046
+    "timestamp": 1682629704
   }
 }
