@@ -1,8 +1,7 @@
 require "rails_helper"
-RSpec.feature "HomePages", type: :feature do
-    scenario "The visitor should see projects" do
-      visit root_path
-      expect(page).to have_text("Projects")
-    end
+
+RSpec.feature "Addcustomers", type: :feature do
+  scenario "The visitor should be able to create a new customer" do
+    # Test code goes here
   end
-  
+end

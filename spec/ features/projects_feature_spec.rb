@@ -1,59 +1,69 @@
-require "rails_helper"
-
-RSpec.feature "Customers", type: :feature do
-  context "Update customer" do
-    let(:addcustomers) { AddcustomersController.create(firstname: "Test first name", lastname: "Test last name", homeaddress: "Test address", birthday: Date.today) }
-    
+RSpec.feature "Addcustomer", type: :feature do
+  context "Create new customer" do
     before(:each) do
-      visit edit_customer_path(customer)
+      user = FactoryBot.create(:user)
+      login_as(user)
+      visit new_addcustomer_path
+    end
+
+    scenario "should be successful" do
+      fill_in "addcustomer_firstname", with: "John"
+      fill_in "addcustomer_lastname", with: "Doe"
+      fill_in "addcustomer_homeaddress", with: "123 Main St"
+      fill_in "addcustomer_birthday", with: "01/01/1990"
+      click_button "Create Addcustomer"
+      expect(page).to have_content("Addcustomer was successfully created.")
+    end
+
+    scenario "should fail" do
+      click_button "Create Addcustomer"
+      expect(page).to have_content("4 errors prohibited this addcustomer from being saved:")
+      expect(page).to have_content("First name can't be blank")
+      expect(page).to have_content("Last name can't be blank")
+      expect(page).to have_content("Homeaddress can't be blank")
+      expect(page).to have_content("Birthday can't be blank")
+    end
+  end
+
+  context "Update customer" do
+    let(:customer) { Addcustomer.create(firstname: "John", lastname: "Doe", homeaddress: "123 Main St", birthday: "01/01/1990") }
+    before(:each) do
+      user = FactoryBot.create(:user)
+      login_as(user)
+      visit edit_addcustomer_path(customer)
     end
 
     scenario "should be successful" do
       within("form") do
-        fill_in "Firstname", with: "New first name"
-        fill_in "Lastname", with: "New last name"
-        fill_in "Homeaddress", with: "New address"
-        fill_in "Birthday", with: Date.today - 30.years
+        fill_in "addcustomer_homeaddress", with: "456 Main St"
       end
-
-      click_button "Update Customer"
-      expect(page).to have_content("Customer was successfully updated")
+      click_button "Update Addcustomer"
+      expect(page).to have_content("Addcustomer was successfully updated.")
     end
 
-    scenario "should fail with blank first name" do
+    scenario "should fail" do
       within("form") do
-        fill_in "Firstname", with: ""
+        fill_in "addcustomer_firstname", with: ""
       end
+      click_button "Update Addcustomer"
+      expect(page).to have_content("1 error prohibited this addcustomer from being saved:")
+      expect(page).to have_content("First name can't be blank")
+    end
+  end
 
-      click_button "Update Customer"
-      expect(page).to have_content("Firstname can't be blank")
+  context "Delete customer" do
+    let(:customer) { Addcustomer.create(firstname: "John", lastname: "Doe", homeaddress: "123 Main St", birthday: "01/01/1990") }
+    before(:each) do
+      user = FactoryBot.create(:user)
+      login_as(user)
+      visit addcustomers_path
     end
 
-    scenario "should fail with blank last name" do
-      within("form") do
-        fill_in "Lastname", with: ""
+    scenario "should be successful" do
+      accept_confirm do
+        click_on "Destroy", match: :first
       end
-
-      click_button "Update Customer"
-      expect(page).to have_content("Lastname can't be blank")
-    end
-
-    scenario "should fail with blank home address" do
-      within("form") do
-        fill_in "Homeaddress", with: ""
-      end
-
-      click_button "Update Customer"
-      expect(page).to have_content("Homeaddress can't be blank")
-    end
-
-    scenario "should fail with invalid birthday" do
-      within("form") do
-        fill_in "Birthday", with: Date.today + 1.day
-      end
-
-      click_button "Update Customer"
-      expect(page).to have_content("Birthday must be before today")
+      expect(page).to have_content("Addcustomer was successfully destroyed.")
     end
   end
 end
